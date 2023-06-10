@@ -18,7 +18,7 @@ const Table = ({
     >
       <thead
         className={
-          "text-xs text-gray-700 uppercase " +
+          "text-xs uppercase " +
           (classNames?.thead ? classNames?.thead : "")
         }
       >
