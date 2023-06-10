@@ -6,35 +6,40 @@ const TableRows = ({
   classNames,
   styledCells,
 }: TableRowsProps) => {
-  return data.map((d, index) => (
-    <tr
-      key={index}
-      className={
-        "bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 " +
-        (classNames?.tr ? classNames?.tr : "")
-      }
-    >
-      {columns.map((column, index) => (
-        <td
-          key={index}
-          className={"px-6 py-4 " + (classNames?.td ? classNames?.td : "")}
-        >
-          <div
-            className={
-              styledCells
-                ? styledCells.find((cell) => cell.key === column.key)?.className
-                : ""
-            }
+  return(
+  <>
+    {data.map((d, index) => (
+      <tr
+        key={index}
+        className={
+          "border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 " +
+          (classNames?.tr ? classNames?.tr : "")
+        }
+      >
+        {columns.map((column, index) => (
+          <td
+            key={index}
+            className={"px-6 py-4 " + (classNames?.td ? classNames?.td : "")}
           >
-            {
-              //@ts-ignore
-              d[column.key]
-            }
-          </div>
-        </td>
-      ))}
-    </tr>
-  ));
+            <div
+              className={
+                styledCells
+                  ? styledCells.find((cell) => cell.key === column.key)
+                      ?.className
+                  : ""
+              }
+            >
+              {
+                //@ts-ignore
+                d[column.key]
+              }
+            </div>
+          </td>
+        ))}
+      </tr>
+    ))}
+    <tr className="h-8"></tr>
+  </>);
 };
 
 export default TableRows;
