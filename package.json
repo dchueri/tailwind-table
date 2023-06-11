@@ -2,7 +2,7 @@
   "name": "tailwind-table",
   "author": "Diego Chueri Aragão",
   "private": false,
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "license": "MIT",
   "scripts": {
