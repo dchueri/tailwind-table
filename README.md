@@ -33,6 +33,10 @@ The Table component can recives 3 parameters:
 		{
 		  title: "Email",
 		  key: "email",
+		},
+		{
+		  title: "Status",
+		  key: "status",
 		}]
 		```
 - **classNames**: Optional. Object that can contain: *table, thead, tbody*. This add your custom className (tailwind style) to this elements of table.
