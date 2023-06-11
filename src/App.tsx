@@ -6,7 +6,6 @@ function App() {
   const columns = [
     { title: "Nome", key: "name" },
     { title: "Email", key: "email" },
-    { title: "Cargo", key: "role" },
     { title: "Status", key: "status" },
   ];
   return (
