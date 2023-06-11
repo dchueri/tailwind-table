@@ -19,7 +19,7 @@ The Table component can recives 3 parameters:
 			email:  "joao.santos@example.com",
 			status:  "Suspenso",
 			role:  "Usuário",
-		}]
+		}, ...]
 		```
 		
  - **columns**: Array with columns that will be displayed in the table.
