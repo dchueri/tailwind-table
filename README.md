@@ -1,4 +1,5 @@
 # Tailwind Table
+![Version](https://img.shields.io/github/package-json/v/dchueri/tailwind-table?style=for-the-badge) ![Contributors](https://img.shields.io/github/contributors/dchueri/tailwind-table?color=blue&style=for-the-badge)
 
 ### How to use?
 The Table component can recives 3 parameters:
