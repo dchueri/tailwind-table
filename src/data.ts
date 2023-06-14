@@ -42,3 +42,13 @@ export const getData = () => [
     role: "Usuário",
   },
 ];
+
+export const pagination = {
+  currentPage: 1,
+  pagesTotal: 10,
+  itemsPerPage: 3,
+  hasNext: true,
+  hasPrev: false,
+  onClickPrev: () => console.log('Prev'),
+  onClickNext: () => console.log('Next')
+};

@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 interface Column {
   title: string;
   key: string;
@@ -31,6 +33,45 @@ interface TableHeadClassNames {
   th?: string;
 }
 
+interface Pagination {
+  currentPage: number;
+  pagesTotal: number;
+  itemsPerPage: number;
+  hasNext: boolean;
+  hasPrev: boolean;
+  onClickPrev: MouseEventHandler<HTMLButtonElement>;
+  onClickNext: MouseEventHandler<HTMLButtonElement>;
+}
+
+interface PaginationTexts {
+  pageText?: string;
+  prevText?: string;
+  nextText?: string;
+}
+
+export interface PaginationTextsProps {
+  currentPage: number;
+  pagesTotal: number;
+  pageText?: string;
+}
+
+export interface PaginationButtonsProps {
+  onClickPrev: MouseEventHandler<HTMLButtonElement>;
+  onClickNext: MouseEventHandler<HTMLButtonElement>;
+  prevText?: string;
+  nextText?: string;
+}
+
+export interface PaginationProps {
+  currentPage: number;
+  pagesTotal: number;
+  onClickPrev: MouseEventHandler<HTMLButtonElement>;
+  onClickNext: MouseEventHandler<HTMLButtonElement>;
+  pageText?: string;
+  prevText?: string;
+  nextText?: string;
+}
+
 export interface TableHeadProps {
   columns: Array<Column>;
   classNames?: TableHeadClassNames;
@@ -49,4 +90,6 @@ export interface TableProps {
   classNames?: TableClassNames;
   tableHeadClassNames?: TableHeadClassNames;
   tableRowsClassNames?: TableRowsClassNames;
+  pagination?: Pagination;
+  paginationTexts?: PaginationTexts;
 }
