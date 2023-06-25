@@ -19,7 +19,7 @@ export class Pagination {
         ...prevValue,
         currentPage:
           prevValue.currentPage > 1
-            ? prevValue.currentPage--
+            ? prevValue.currentPage - 1
             : prevValue.currentPage,
       }));
     this.onClickNext = () =>
@@ -27,7 +27,7 @@ export class Pagination {
         ...prevValue,
         currentPage:
           prevValue.currentPage < this.pagesTotal
-            ? prevValue.currentPage++
+            ? prevValue.currentPage + 1
             : prevValue.currentPage,
       }));
   }
