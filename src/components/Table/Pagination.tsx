@@ -21,6 +21,8 @@ export const Pagination = ({
       <PaginationButtons
         prevText={prevText}
         nextText={nextText}
+        hasNext={currentPage < pagesTotal}
+        hasPrev={currentPage > 1}
         onClickPrev={onClickPrev}
         onClickNext={onClickNext}
       />
