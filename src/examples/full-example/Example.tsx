@@ -43,7 +43,7 @@ const Example = () => {
     );
   }, [paginationState.currentPage, paginationState.itemsPerPage]);
 
-  if (!data) return "Loading";
+  if (!data) return <p>Loading...</p>;
 
   const page = new Pagination(data.total, data.limit, setPaginationState);
 
