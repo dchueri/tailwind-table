@@ -12,8 +12,10 @@ export const PaginationButtons = ({
     <div className="inline-flex my-2 xs:mt-0">
       <button
         onClick={onClickPrev}
-        className={`inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
-          !hasPrev ? "bg-gray-600 hover:bg-gray-700" : null
+        className={`inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-l dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
+          !hasPrev
+            ? "bg-gray-600 hover:bg-gray-700"
+            : "bg-gray-800 hover:bg-gray-900"
         }`}
         disabled={!hasPrev}
       >
@@ -34,8 +36,10 @@ export const PaginationButtons = ({
       </button>
       <button
         onClick={onClickNext}
-        className={`inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
-          !hasNext ? "bg-gray-600 hover:bg-gray-700" : null
+        className={`inline-flex items-center px-4 py-2 text-sm font-medium text-white border-0 border-l border-gray-700 rounded-r dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
+          !hasNext
+            ? "bg-gray-600 hover:bg-gray-700"
+            : "bg-gray-800 hover:bg-gray-900"
         }`}
         disabled={!hasNext}
       >
