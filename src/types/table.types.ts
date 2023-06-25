@@ -37,8 +37,6 @@ interface Pagination {
   currentPage: number;
   pagesTotal: number;
   itemsPerPage: number;
-  hasNext: boolean;
-  hasPrev: boolean;
   onClickPrev: MouseEventHandler<HTMLButtonElement>;
   onClickNext: MouseEventHandler<HTMLButtonElement>;
 }
@@ -58,6 +56,8 @@ export interface PaginationTextsProps {
 export interface PaginationButtonsProps {
   onClickPrev: MouseEventHandler<HTMLButtonElement>;
   onClickNext: MouseEventHandler<HTMLButtonElement>;
+  hasNext: boolean;
+  hasPrev: boolean;
   prevText?: string;
   nextText?: string;
 }
@@ -70,6 +70,14 @@ export interface PaginationProps {
   pageText?: string;
   prevText?: string;
   nextText?: string;
+}
+
+export interface IPagination {
+  currentPage: number;
+  pagesTotal: number;
+  itemsPerPage: number;
+  onClickPrev: MouseEventHandler<HTMLButtonElement>;
+  onClickNext: MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface TableHeadProps {
@@ -90,6 +98,6 @@ export interface TableProps {
   classNames?: TableClassNames;
   tableHeadClassNames?: TableHeadClassNames;
   tableRowsClassNames?: TableRowsClassNames;
-  pagination?: Pagination;
+  pagination?: Pagination | null;
   paginationTexts?: PaginationTexts;
 }
