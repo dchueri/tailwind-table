@@ -1,143 +1,134 @@
-
 # Tailwind Table
 
 ![Downloads](https://img.shields.io/npm/dt/tailwind-table?style=for-the-badge) ![Version](https://img.shields.io/github/package-json/v/dchueri/tailwind-table?style=for-the-badge) ![Contributors](https://img.shields.io/github/contributors/dchueri/tailwind-table?color=blue&style=for-the-badge)
 
-
 Simple usage customizable table with TailwindCSS e Typescript
-  
 
 ### How to use?
 
-The Table component can recives 3 parameters:
+The Table component can recives this parameters:
 
-  
+- [data](#data)
+- [columns](#columns)
+- [pagination](#pagination)
+  - [PaginationItemsPerPageProps](#PaginationItemsPerPageProps)
+- [paginationTexts](#paginationTexts)
+- [classNames](#classNames)
+- [tableHeadClassNames](#tableHeadClassNames)
+- [tableRowsClassNames](#tableRowsClassNames)
 
--  **data**: Array with datas to render on table;
+* ### **data**:
 
--  *Example*:
+  Array with datas to render on table;
 
-```javascript
+  - _Example_:
 
-[{
+  ```javascript
+  [
+    {
+      name: "Sofia Oliveira",
+      email: "sofia.oliveira@example.com",
+      status: "Ativo",
+      role: "Admin",
+    },
+    {
+      name: "João Santos",
+      email: "joao.santos@example.com",
+      status: "Suspenso",
+      role: "Usuário",
+    },
+  ];
+  ```
 
-name:  "Sofia Oliveira",
+* ### **columns**:
 
-email:  "sofia.oliveira@example.com",
+  Array with columns that will be displayed in the table.
 
-status:  "Ativo",
+  - _Example_:
 
-role:  "Admin",
+  ```javascript
+  [
+    {
+      title: "Nome", // Title of column that will be displayed.
+      key: "name", // Key of data object that represents this column.
+    },
+    {
+      title: "Email",
+      key: "email",
+    },
+  ];
+  ```
 
-},
+* ### **pagination**:
 
-{
+  Optional. Depending on your pagination method, you can use some techniques to achieve the following information.
 
-name:  "João Santos",
+  - _Example_:
 
-email:  "joao.santos@example.com",
+  ```javascript
+  {
+      currentPage: number;
+      pagesTotal: number;
+      itemsPerPageProps: PaginationItemsPerPageProps;
+      onClickPrev: MouseEventHandler<HTMLButtonElement>;
+      onClickNext: MouseEventHandler<HTMLButtonElement>;
+  }
+  ```
 
-status:  "Suspenso",
+  The first two attributes are self-explanatory. The last two are callback functions that will be executed when clicking on the pagination buttons.
 
-role:  "Usuário",
+  #### _PaginationItemsPerPageProps_ are optional and can recive this props:
 
-}]
+  ```javascript
+  {
+      itemsPerPage: "10";
+      text: "Usuários por página";
+      setItemsPerPage: (itemsPerPage) => setState(itemsPerPage);
+      options: [5,10,20,50];
+      classNames: {
+  	    text: "",
+  	    input: "",
+  	    div: "",
+  	};
+  }
+  ```
 
-```
+* ### **paginationTexts**:
 
--  **columns**: Array with columns that will be displayed in the table.
+  Optional. If you prefer, pass the texts that will appear in the pagination.
 
--  *Example*:
+  - _Example_:
 
-```javascript
+  ```javascript
+  {
+      pageText: "Página", // Page
+      prevText: "Anterior", // Previous
+      nextText: "Próxima", // Next
+  }
+  ```
 
-[{
+* ### **classNames**:
 
-title:  "Nome",// Title of column that will be displayed.
+  Optional. Object that can contain: _table, thead, tbody_. This add your custom className (tailwind style) to this elements of table.
 
-key:  "name", // Key of data object that represents this column.
+  - _Example_:
 
-},
+  ```javascript
+  {
+      table: "rounded-lg",
+      thead: "text-gray-800",
+      tbody: "bg-white",
+  }
+  ```
 
-{
+* ### **tableHeadClassNames**:
 
-title:  "Email",
+  Optional. Object that can contain: _tr, th_. This add your custom className (tailwind style) to this elements of table.
 
-key:  "email",
-
-}]
-
-```
-
--  **pagination**: Optional. Depending on your pagination method, you can use some techniques to achieve the following information.
-
--  *Example*:
-
-```javascript
-
-{
-
-currentPage: number;
-
-pagesTotal: number;
-
-itemsPerPage: number;
-
-onClickPrev: MouseEventHandler<HTMLButtonElement>;
-
-onClickNext: MouseEventHandler<HTMLButtonElement>;
-
-}
-
-```
-
-The first three attributes are self-explanatory. The last two are callback functions that will be executed when clicking on the pagination buttons.
-
-  
-
--  **paginationTexts**: Optional. If you prefer, pass the texts that will appear in the pagination.
-
--  *Example*:
-
-  
-
-```javascript
-
-{
-
-pageText: "Página", // Page
-
-prevText: "Anterior", // Previous
-
-nextText: "Próxima", // Next
-
-}
-
-```
-
--  **classNames**: Optional. Object that can contain: *table, thead, tbody*. This add your custom className (tailwind style) to this elements of table.
-
--  *Example*:
-
-```javascript
-
-{
-
-table: "rounded-lg",
-
-thead: "text-gray-800",
-
-tbody: "bg-white",
-
-}
-
-```
-
-  
+* ### **tableRowsClassNames**:
+  Optional. Object that can contain: _tr, td_. This add your custom className (tailwind style) to this elements of table.
 
 You can see the result [here](https://dchueri.github.io/tailwind-table/).
-
-  
 
 ### Contributing
 

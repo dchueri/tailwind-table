@@ -1,4 +1,6 @@
-import { MouseEventHandler } from "react";
+import {
+  MouseEventHandler
+} from "react";
 
 interface Column {
   title: string;
@@ -33,12 +35,19 @@ interface TableHeadClassNames {
   th?: string;
 }
 
-interface Pagination {
+interface PaginationClassNames {
+  div?: string;
+  text?: string;
+  buttons?: PaginationButtonsClassNames 
+}
+
+export interface Pagination {
   currentPage: number;
   pagesTotal: number;
-  itemsPerPage: number;
+  itemsPerPageProps?: PaginationItemsPerPageProps;
   onClickPrev: MouseEventHandler<HTMLButtonElement>;
   onClickNext: MouseEventHandler<HTMLButtonElement>;
+  classNames?: PaginationClassNames;
 }
 
 interface PaginationTexts {
@@ -47,10 +56,31 @@ interface PaginationTexts {
   nextText?: string;
 }
 
+interface PaginationItemsPerPageClassNames {
+  text?: string;
+  input?: string;
+  div?: string;
+}
+
+export interface PaginationItemsPerPageProps {
+  itemsPerPage: number;
+  text: string;
+  setItemsPerPage: any;
+  options: Array<number>;
+  classNames?: PaginationItemsPerPageClassNames;
+}
+
 export interface PaginationTextsProps {
   currentPage: number;
+  classNames?: string;
   pagesTotal: number;
   pageText?: string;
+}
+
+interface PaginationButtonsClassNames {
+  div?: string;
+  button?: string;
+  disabledButton?: string;
 }
 
 export interface PaginationButtonsProps {
@@ -60,24 +90,19 @@ export interface PaginationButtonsProps {
   hasPrev: boolean;
   prevText?: string;
   nextText?: string;
+  classNames?: PaginationButtonsClassNames;
 }
 
 export interface PaginationProps {
   currentPage: number;
   pagesTotal: number;
+  itemsPerPageProps?: PaginationItemsPerPageProps;
+  classNames?: PaginationClassNames;
   onClickPrev: MouseEventHandler<HTMLButtonElement>;
   onClickNext: MouseEventHandler<HTMLButtonElement>;
   pageText?: string;
   prevText?: string;
   nextText?: string;
-}
-
-export interface IPagination {
-  currentPage: number;
-  pagesTotal: number;
-  itemsPerPage: number;
-  onClickPrev: MouseEventHandler<HTMLButtonElement>;
-  onClickNext: MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface TableHeadProps {

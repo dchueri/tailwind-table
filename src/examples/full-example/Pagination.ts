@@ -1,4 +1,8 @@
-import { Dispatch, MouseEventHandler, SetStateAction } from "react";
+import {
+  Dispatch,
+  MouseEventHandler,
+  SetStateAction
+} from "react";
 import { PaginationState } from "./types";
 
 export class Pagination {
@@ -6,6 +10,7 @@ export class Pagination {
   readonly itemsPerPage: number;
   readonly onClickPrev: MouseEventHandler<HTMLButtonElement>;
   readonly onClickNext: MouseEventHandler<HTMLButtonElement>;
+  readonly setItemsPerPage: (itemsPerPage: number) => void;
 
   constructor(
     itemsTotal: number,
@@ -29,6 +34,11 @@ export class Pagination {
           prevValue.currentPage < this.pagesTotal
             ? prevValue.currentPage + 1
             : prevValue.currentPage,
+      }));
+    this.setItemsPerPage = (itemsPerPage: number) =>
+      setPaginationState((prevValue) => ({
+        ...prevValue,
+        itemsPerPage: itemsPerPage,
       }));
   }
 

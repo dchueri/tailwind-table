@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Table } from "../../components";
-import { Pagination } from "../../examples/full-example/Pagination";
-import { IPagination } from "../../types/table.types";
+import { Pagination as PaginationClass } from "../../examples/full-example/Pagination";
+import {
+  Pagination,
+  PaginationItemsPerPageProps,
+} from "../../types/table.types";
 import { PaginationState, UserExampleApiResponse } from "./types";
 
 const columns = [
@@ -23,7 +26,7 @@ const Example = () => {
     itemsPerPage: 10,
     currentPage: 1,
   });
-  let pagination: IPagination | undefined;
+  let pagination: Pagination | undefined;
 
   const dataFetch = async (itemsPerPage: number, currentPage: number) => {
     return await (
@@ -45,19 +48,25 @@ const Example = () => {
 
   if (!data) return <p>Loading...</p>;
 
-  const page = new Pagination(data.total, data.limit, setPaginationState);
+  const page = new PaginationClass(data.total, data.limit, setPaginationState);
 
+  const itemsPerPageProps: PaginationItemsPerPageProps = {
+    itemsPerPage: paginationState.itemsPerPage,
+    setItemsPerPage: page.setItemsPerPage,
+    text: "Usuários por página",
+    options: [5, 10, 20, 50],
+  };
   pagination = {
     currentPage: paginationState.currentPage,
     pagesTotal: page.pagesTotal,
-    itemsPerPage: paginationState.itemsPerPage,
+    itemsPerPageProps: itemsPerPageProps,
     onClickPrev: page.onClickPrev,
     onClickNext: page.onClickNext,
   };
 
   return (
-    <div className="h-[100vh] flex flex-col gap-10 p-5 text-center">
-      <h1 className="font-bold text-4xl">Exemplo</h1>
+    <div className="h-[100vh] flex flex-col gap-10 p-5 text-center dark:bg-black">
+      <h1 className="font-bold text-4xl dark:text-white">Exemplo</h1>
       <Table
         data={data.users}
         columns={columns}
@@ -65,8 +74,8 @@ const Example = () => {
         paginationTexts={paginationTexts}
         classNames={{
           table: "rounded-lg drop-shadow-md",
-          thead: "text-gray-800",
-          tbody: "bg-white",
+          thead: "text-gray-800 dark:text-gray-100",
+          tbody: "bg-white dark:text-gray-300",
         }}
       />
     </div>
