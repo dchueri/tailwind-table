@@ -40,8 +40,10 @@ export const Table = ({
         <Pagination
           currentPage={pagination.currentPage}
           pagesTotal={pagination.pagesTotal}
+          itemsPerPageProps={pagination.itemsPerPageProps}
           onClickPrev={pagination.onClickPrev}
           onClickNext={pagination.onClickNext}
+          classNames={pagination.classNames}
           pageText={paginationTexts?.pageText}
           prevText={paginationTexts?.prevText}
           nextText={paginationTexts?.nextText}

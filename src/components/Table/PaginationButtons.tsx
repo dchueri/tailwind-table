@@ -7,15 +7,16 @@ export const PaginationButtons = ({
   onClickNext,
   hasPrev,
   hasNext,
+  classNames
 }: PaginationButtonsProps) => {
   return (
-    <div className="inline-flex my-2 xs:mt-0">
+    <div className={`inline-flex my-2 xs:mt-0 ${classNames?.div}`}>
       <button
         onClick={onClickPrev}
         className={`inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-l dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
           !hasPrev
-            ? "bg-gray-600 hover:bg-gray-700"
-            : "bg-gray-800 hover:bg-gray-900"
+            ? `bg-gray-200 hover:bg-gray-300 dark:bg-gray-500 dark:hover:bg-gray-700 ${classNames?.disabledButton}`
+            : `bg-gray-400 hover:bg-gray-500 dark:bg-gray-800 dark:hover:bg-gray-900 ${classNames?.button}`
         }`}
         disabled={!hasPrev}
       >
@@ -38,9 +39,9 @@ export const PaginationButtons = ({
         onClick={onClickNext}
         className={`inline-flex items-center px-4 py-2 text-sm font-medium text-white border-0 border-l border-gray-700 rounded-r dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
           !hasNext
-            ? "bg-gray-600 hover:bg-gray-700"
-            : "bg-gray-800 hover:bg-gray-900"
-        }`}
+            ? `bg-gray-200 hover:bg-gray-300 dark:bg-gray-500 dark:hover:bg-gray-700 ${classNames?.disabledButton}`
+            : `bg-gray-400 hover:bg-gray-500 dark:bg-gray-800 dark:hover:bg-gray-900 ${classNames?.button}`
+       }`}
         disabled={!hasNext}
       >
         {nextText ? nextText : ""}
