@@ -1,7 +1,5 @@
 # Tailwind Table
 
-![Downloads](https://img.shields.io/npm/dt/tailwind-table?style=for-the-badge) ![Version](https://img.shields.io/github/package-json/v/dchueri/tailwind-table?style=for-the-badge) ![Contributors](https://img.shields.io/github/contributors/dchueri/tailwind-table?color=blue&style=for-the-badge)
-
 Simple usage customizable table with TailwindCSS e Typescript
 
 ### How to use?
